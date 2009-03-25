@@ -16,5 +16,6 @@ ActiveRecord::Schema.define do
     t.string      :content
     t.string      :author_name
     t.string      :author_uri
+    t.boolean     :tweeted
   end
 end
