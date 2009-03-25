@@ -11,7 +11,9 @@ ActiveRecord::Base.establish_connection(
 
 ActiveRecord::Schema.define do
   create_table(:tweets, :force => true) do |t|
+    t.string      :twitter_id
     t.datetime    :published
+    t.string      :link
     t.string      :title
     t.string      :content
     t.string      :author_name
