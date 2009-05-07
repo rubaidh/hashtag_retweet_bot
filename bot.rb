@@ -26,7 +26,7 @@ end
 
 feed_thread = Thread.new do
   while(true != false)
-begin
+    begin
       # fetch the feed
       feed = Feedzirra::Feed.fetch_and_parse("http://search.twitter.com/search.atom?q=+%23sor09")
 
@@ -40,22 +40,19 @@ begin
                 )
 
         if tweet.tweeted.blank?
-          #post_tweet "#{tweet.link}"
           origin = tweet.link.gsub(/^http.*com\//,"").gsub(/\/statuses\/\d*/,"")
           message = tweet.title.gsub(/#sor09/i, "")
           if origin.size + message.size  <= 135
             twitter.status(:post, "RT @#{origin}: #{message}")
           else
-            twitter.status(:post, "RT @#{origin} tagged 'sor09':
-  #{tweet.link}")
+            twitter.status(:post, "RT @#{origin} tagged 'sor09': #{tweet.link}")
           end
-          #, tweet.link.gsub(/^http.*statuses\//, ""))
-          puts "#{Time.now.to_s(:long)}"
+          puts "#{Time.now.to_s(:long)}" # poor mans logging
           tweet.update_attribute(:tweeted, true)
         end
       end
-  rescue
-  end
+    rescue
+    end
     sleep(60)
   end
 end
