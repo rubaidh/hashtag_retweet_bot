@@ -1,0 +1,17 @@
+The script is a bit ghastly and could easily be improved but should
+provide inspiration for something a bit more thought out.
+
+Dependencies
+============
+- twibot, wrapper for twitter4r to do the twitter magic
+-- gem install twibot
+-- http://github.com/cjohansen/twibot/tree/master
+
+- Feedzirra, atom parser
+-- gem install pauldix-feedzirra
+-- http://github.com/pauldix/feedzirra/tree/master
+
+- ActiveRecord for ORM
+
+Run create_db_table.rb to create a database table for the app
+Ruby bot.rb to run the bot
