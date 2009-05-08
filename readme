@@ -15,3 +15,5 @@ Dependencies
 
 Run create_db_table.rb to create a database table for the app
 Ruby bot.rb to run the bot
+
+You'll want to setup the db connections to suit your own db and add a twitter login to config/bot.yml
